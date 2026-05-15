@@ -1,4 +1,4 @@
-package sort;
+package practice.sort;
 
 public class QuickSort {
   private static void quickSort(int[] data, int low, int high) {
