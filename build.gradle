@@ -9,16 +9,24 @@ repositories {
     mavenCentral()
 }
 
-
-// Map your project's current folder structure
+// Configure source sets to use custom directories
 sourceSets {
     main {
-        java { srcDirs = ['src'] } // Change 'src' to wherever your .java files are
+        java {
+            srcDirs = ['src']
+            exclude 'test/**'  // Exclude test directory from main compilation
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
     }
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
 }
 
 test {
