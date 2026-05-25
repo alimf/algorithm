@@ -1,6 +1,11 @@
 package practice.sort;
 
 public class QuickSort {
+  public static void sort(int[] data) {
+    if (data == null || data.length < 2) return;
+    quickSort(data, 0, data.length - 1);
+  }
+
   private static void quickSort(int[] data, int low, int high) {
     if (low < high) {
       int pi = partition(data, low, high);

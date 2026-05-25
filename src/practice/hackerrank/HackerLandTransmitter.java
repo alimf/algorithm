@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class HackerLandTransmitter {
-  private static int hackerlandRadioTransmitters(List<Integer> x, int k) {
+  public static int hackerlandRadioTransmitters(List<Integer> x, int k) {
     Collections.sort(x);
     int count = 0;
     int i = 0;

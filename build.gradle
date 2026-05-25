@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group 'org.example'
@@ -9,12 +10,11 @@ repositories {
     mavenCentral()
 }
 
-// Configure source sets to use custom directories
 sourceSets {
     main {
         java {
             srcDirs = ['src']
-            exclude 'test/**'  // Exclude test directory from main compilation
+            exclude 'test/**'
         }
     }
     test {
@@ -31,4 +31,14 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
 }
